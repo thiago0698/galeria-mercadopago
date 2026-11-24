@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #111115;
+    color: #f4f4f5;
+    padding-bottom: 50px;
+}
+
+.topo {
+    text-align: center;
+    padding: 36px 20px;
+    background-color: #18181f;
+    border-bottom: 1px solid #27272a;
+    margin-bottom: 32px;
+}
+
+.topo h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #facc15;
+}
+
+.topo p {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #18181f;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem-box {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    background: #09090b;
+}
+
+.imagem-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.card.bloqueado .imagem-box img {
+    filter: blur(28px) brightness(0.75);
+    transform: scale(1.15);
+}
+
+.card.liberado .imagem-box img {
+    filter: blur(0px) brightness(1);
+    transform: scale(1);
+}
+
+.aviso-bloqueio {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.cadeado {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(17, 17, 21, 0.9);
+    border: 2px solid #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.aviso-bloqueio span:last-child {
+    background: rgba(17, 17, 21, 0.85);
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.selo-liberado {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #10b981;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: bold;
+}
+
+.card-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.linha-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linha-titulo h3 {
+    font-size: 1.05rem;
+}
+
+.preco {
+    color: #facc15;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.btn-desbloquear,
+.btn-baixar {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-desbloquear {
+    background-color: #facc15;
+    color: #111115;
+}
+
+.btn-desbloquear:hover {
+    background-color: #eab308;
+}
+
+.btn-baixar {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal-conteudo {
+    background: #18181f;
+    border: 1px solid #27272a;
+    border-radius: 14px;
+    max-width: 420px;
+    width: 100%;
+    padding: 24px;
+    position: relative;
+    text-align: center;
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #a1a1aa;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.preco-modal {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #facc15;
+    margin: 10px 0 18px;
+}
+
+.form-email {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-email label {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+}
+
+.form-email input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #27272a;
+    background: #111115;
+    color: #fff;
+}
+
+.pix-area {
+    background: #111115;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.qr-img {
+    width: 170px;
+    height: 170px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+
+.copia-cola {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.copia-cola input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #27272a;
+    background: #18181f;
+    color: #a1a1aa;
+    font-size: 0.8rem;
+}
+
+.copia-cola button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #27272a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.status-texto {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #facc15;
+}
